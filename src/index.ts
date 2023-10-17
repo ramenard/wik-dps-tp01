@@ -1,4 +1,5 @@
 import { createServer, IncomingMessage, ServerResponse } from "http";
+import { hostname } from "os";
 
 const url: string = '/ping'
 const port = process.env.PING_LISTEN_PORT ? process.env.PING_LISTEN_PORT : 3000
@@ -12,5 +13,5 @@ createServer(function (req: IncomingMessage, res: ServerResponse) {
     }
     res.end();
 }).listen(port, function () {
-    console.log(`server listening on port ${port}`);
+    console.log(`server listening on port ${port}, hostname: ${hostname}`);
 });
