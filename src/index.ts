@@ -8,6 +8,7 @@ createServer(function (req: IncomingMessage, res: ServerResponse) {
     if (req.method === 'GET' && req.url === url) {
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.write(JSON.stringify(req.headers));
+        console.log(`hostname: ${hostname}`)
     }else {
         res.writeHead(404, { "Content-Type": 'application/json' });
     }
